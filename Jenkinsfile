@@ -1,10 +1,13 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-               echo 'This is a minimal pipeline.'
-            }
-        }
+  agent any
+  tools {
+    maven 'maven-3.9.4'
+  }
+  stages {
+    stage ('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
     }
+  }
 }
