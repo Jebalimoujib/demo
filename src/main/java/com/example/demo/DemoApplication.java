@@ -31,12 +31,12 @@ public class DemoApplication implements CommandLineRunner {
         if (args == null || args.length < 2 || !StringUtils.isNumeric(args[args.length - 1])) {
             throw new IllegalArgumentException();
         }
-        List input = new ArrayList();
+        List input = new ArrayList<String>();
         for (int i = 0; i < args.length - 1; i++) {
             input.add(args[i]);
         }
         log.info("INPUT : {}, SIZE: {}", input, Integer.valueOf(args[args.length - 1]));
-        List<List> diviser = divisionService.diviser(input, Integer.valueOf(args[args.length - 1]));
+        List diviser = divisionService.diviser(input, Integer.parseInt(args[args.length - 1]));
         log.info("RESULT : {}", diviser);
         log.info("APPLICATION FINISHED");
     }
